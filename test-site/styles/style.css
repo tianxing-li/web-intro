@@ -1,0 +1,32 @@
+html{
+	font-size: 10px;
+	font-family: 'Roboto Slab', serif;
+	background-color: #ADADAD;
+}
+body{
+	width: 1000px;
+	margin: 0 auto;
+	background-color: #383838;
+	padding: 0 20px 20px 20px;
+	border: 5px solid grey;
+}
+p {
+  color: blue;
+  font-size: 16px;
+  width: 500px;
+  border: 1px solid black;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+h1{
+	color: purple;
+	margin: 0;
+	padding: 20px 0;
+	text-shadow: 3px 3px 1px black;
+	font-size: 60px;
+	text-align: center;
+}
+img{
+	display: block;
+	margin: 0 auto;
+}
