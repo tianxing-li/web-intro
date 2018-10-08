@@ -44,6 +44,11 @@
 		<img>
 		<ul>无序列表<li></li></ul>
 		<ol>有序列表<li></li></ol>
+		描述列表 (description list) 
+		<dl>
+			<dt>description term元素</dt>
+			<dd>description description元素</dd>
+		</dl>
 		<i> 被用来传达传统上用斜体表达的意义：外国文字，分类名称，技术术语，一种思想……
 		<b> 被用来传达传统上用粗体表达的意义：关键字，产品名称，引导句……
 		<u> 被用来传达传统上用下划线表达的意义：专有名词，拼写错误……
