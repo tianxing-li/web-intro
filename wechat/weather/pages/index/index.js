@@ -20,7 +20,15 @@ Page({
     nowWeather: '',
     nowWeatherBg: ''
   },
+  onPullDownRefresh(){
+    this.getNow(()=>{
+      wx.stopPullDownRefresh()//传入参数执行结束下拉刷新
+    })
+  },
   onLoad(){
+    this.getNow()    
+  },
+  getNow(callback){
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
@@ -44,6 +52,9 @@ Page({
           backgroundColor: weatherColorMap[weather],
         })
         console.log(temp, weather)
+      },
+      complete: ()=>{
+        callback && callback() //前面那个参数判断是否执行，后面是执行语句
       }
     })
   }
