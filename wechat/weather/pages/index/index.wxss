@@ -3,3 +3,10 @@
   margin-top: 300rpx;
   text-align: center;
 }
+.temp{
+  margin-top: 300rpx;
+  font-size: 200rpx;
+  text-align: center;
+  line-height: 280rpx;   /* 行高一般会设置为字号的1.4倍 */
+  opacity: 0.5;   /* 这是所谓的透明度 */
+}
