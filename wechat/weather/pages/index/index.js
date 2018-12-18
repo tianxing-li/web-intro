@@ -35,7 +35,7 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
-        city: '上海市'
+        city: '昆明市'
       },
       header: {
         'content-type': 'application/json' // 默认值
