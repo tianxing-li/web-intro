@@ -69,7 +69,7 @@ Page({
   },
   setHourlyWeather(result){
     //set forecast
-    console.log(result)
+    //console.log(result)
     let forecast = result.forecast
     let hourlyWeather = []
     let nowHour = new Date().getHours()
@@ -95,6 +95,13 @@ Page({
   onTapDayWeather(){
     wx.navigateTo({
       url: '/pages/list/list',
+    })
+  },
+  onTapLocation() {
+    wx.getLocation({
+      success: res=> {
+        console.log(res.latitude, res.longitude)
+      }
     })
   }
 })
