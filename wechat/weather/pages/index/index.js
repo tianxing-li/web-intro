@@ -6,6 +6,7 @@ const weatherMap = {
   'heavyrain': '大雨',
   'snow': '雪'
 }
+
 const weatherColorMap = {
   'sunny': '#cbeefd',
   'cloudy': '#deeef6',
@@ -14,6 +15,9 @@ const weatherColorMap = {
   'heavyrain': '#c5ccd0',
   'snow': '#aae1fc'
 }
+
+const QQMapWX = require('../../libs/qqmap-wx-jssdk.js')
+
 Page({
   data: {
     nowTemp: '',
@@ -29,6 +33,9 @@ Page({
     })
   },
   onLoad(){
+    this.qqmapsdk = new QQMapWX({
+      key: 'RIOBZ-B7T3U-SJKV3-BYR2Z-LJC35-NNBB3'
+    })
     this.getNow()    
   },
   getNow(callback){
@@ -100,7 +107,21 @@ Page({
   onTapLocation() {
     wx.getLocation({
       success: res=> {
-        console.log(res.latitude, res.longitude)
+        //console.log(res.latitude, res.longitude)
+        this.qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success: res => {
+            let city = res.result.address_component.city
+            let nation = res.result.address_component.nation
+            console.log(city, nation)
+          },
+          fail: res=> {
+            let city = '昆明市'
+          }
+        })
       }
     })
   }
