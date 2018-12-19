@@ -25,7 +25,9 @@ Page({
     nowWeatherBg: '',
     hourlyWeather: [],
     todayTemp: "",
-    todayDate: ""
+    todayDate: "",
+    city: '北京市',
+    locationTipsText: '点击获取当前位置'
   },
   onPullDownRefresh(){
     this.getNow(()=>{
@@ -42,7 +44,7 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
-        city: '昆明市'
+        city: this.data.city
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -101,7 +103,7 @@ Page({
   },
   onTapDayWeather(){
     wx.navigateTo({
-      url: '/pages/list/list',
+      url: '/pages/list/list?city=' + this.data.city,
     })
   },
   onTapLocation() {
@@ -115,11 +117,22 @@ Page({
           },
           success: res => {
             let city = res.result.address_component.city
-            let nation = res.result.address_component.nation
-            console.log(city, nation)
+            //let nation = res.result.address_component.nation
+            //console.log(city, nation)
+            this.setData({
+              city: city,
+              locationTipsText: ''
+            })
+            this.getNow()
           },
           fail: res=> {
             let city = '昆明市'
+            this.setData({
+              city: '昆明市',
+              locationTipsText: '获取失败'
+            })
+            //console.log(city)
+            this.getNow()
           }
         })
       }
