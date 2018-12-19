@@ -7,6 +7,7 @@ Page({
     city: '北京市'
   },
   onLoad(options) {
+    console.log('onLoad')
     //console.log(options.city)
     this.setData({
       city: options.city

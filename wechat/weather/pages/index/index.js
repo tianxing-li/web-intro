@@ -44,12 +44,14 @@ Page({
     })
   },
   onLoad(){
+    console.log('onLoad')
     this.qqmapsdk = new QQMapWX({
       key: 'RIOBZ-B7T3U-SJKV3-BYR2Z-LJC35-NNBB3'
     })
     this.getNow()    
   },
   onShow() {
+    console.log('onReady')
     wx.getSetting({
       success: res => {
         let auth = res.authSetting['scope.userLocation']
